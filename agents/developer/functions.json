@@ -1,0 +1,29 @@
+[
+  {
+    "name": "get_roles",
+    "description": "Get available roles and their documentation",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "agent": true
+  },
+  {
+    "name": "execute_role",
+    "description": "Execute role",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "Role"
+        }
+      },
+      "required": [
+        "role"
+      ]
+    },
+    "agent": true
+  }
+]
