@@ -1,0 +1,33 @@
+[
+  {
+    "name": "get_roles",
+    "description": "Lists available roles",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "agent": true
+  },
+  {
+    "name": "execute_role",
+    "description": "Executes the given role",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "Role to execute"
+        },
+        "task": {
+          "type": "string",
+          "description": "Task to execute"
+        }
+      },
+      "required": [
+        "role"
+      ]
+    },
+    "agent": true
+  }
+]
