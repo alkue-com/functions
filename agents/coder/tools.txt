@@ -1,4 +1,2 @@
-fs_mkdir.sh
-fs_ls.sh
-fs_patch.sh
-fs_cat.sh
+execute_command.sh
+execute_py_code.py

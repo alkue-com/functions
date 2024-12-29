@@ -10,7 +10,7 @@ main() {
     parse_argv "$@"
     setup_env
     tool_path="$root_dir/tools/$tool_name.sh"
-    run 
+    run
 }
 
 parse_argv() {
@@ -30,7 +30,7 @@ parse_argv() {
 }
 
 setup_env() {
-    load_env "$root_dir/.env" 
+    load_env "$root_dir/.env"
     export LLM_ROOT_DIR="$root_dir"
     export LLM_TOOL_NAME="$tool_name"
     export LLM_TOOL_CACHE_DIR="$LLM_ROOT_DIR/cache/$tool_name"
@@ -71,7 +71,7 @@ def escape_shell_word:
   | gsub("\n"; "'$'\\n''")
   | "'\(.)'";
 def to_args:
-    to_entries | .[] | 
+    to_entries | .[] |
     (.key | split("_") | join("-")) as $key |
     if .value | type == "array" then
         .value | .[] | "--\($key) \(. | escape_shell_word)"
