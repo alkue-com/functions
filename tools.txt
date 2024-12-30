@@ -1,7 +1,6 @@
 execute_command.sh
 execute_py_code.py
 execute_js_code.js
-execute_sql_code.sh
 fetch_url_via_curl.sh
 fetch_url_via_jina.sh
 fs_cat.sh

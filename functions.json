@@ -48,22 +48,6 @@
     }
   },
   {
-    "name": "execute_sql_code",
-    "description": "Execute the sql code.",
-    "parameters": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string",
-          "description": "The code to execute."
-        }
-      },
-      "required": [
-        "code"
-      ]
-    }
-  },
-  {
     "name": "fetch_url_via_curl",
     "description": "Extract the content from a given URL.",
     "parameters": {
