@@ -1,5 +1,21 @@
 [
   {
+    "name": "calculator",
+    "description": "Use calculator",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string",
+          "description": "Expression"
+        }
+      },
+      "required": [
+        "expression"
+      ]
+    }
+  },
+  {
     "name": "execute_command",
     "description": "Execute the shell command.",
     "parameters": {
