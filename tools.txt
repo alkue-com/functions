@@ -12,5 +12,6 @@ fs_rm.sh
 fs_write.sh
 get_current_time.sh
 get_current_weather.sh
+use_numbat.sh
 search_wikipedia.sh
 web_search_tavily.sh
