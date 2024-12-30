@@ -227,6 +227,22 @@
     }
   },
   {
+    "name": "use_numbat",
+    "description": "Perform computation for expression",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string",
+          "description": "Expression"
+        }
+      },
+      "required": [
+        "expression"
+      ]
+    }
+  },
+  {
     "name": "search_wikipedia",
     "description": "Search Wikipedia for a query.\nUses it to get detailed information about a public figure, interpretation of a complex scientific concept or in-depth connectivity of a significant historical event,.",
     "parameters": {
