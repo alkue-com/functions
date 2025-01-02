@@ -228,7 +228,7 @@
   },
   {
     "name": "use_numbat",
-    "description": "Perform computation for expression",
+    "description": "Perform computation",
     "parameters": {
       "type": "object",
       "properties": {
