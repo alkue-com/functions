@@ -11,13 +11,17 @@
   },
   {
     "name": "execute_role",
-    "description": "Execute role",
+    "description": "Executes the given role",
     "parameters": {
       "type": "object",
       "properties": {
         "role": {
           "type": "string",
-          "description": "Role"
+          "description": "Role to execute"
+        },
+        "task": {
+          "type": "string",
+          "description": "Task to execute"
         }
       },
       "required": [
