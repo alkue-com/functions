@@ -1,0 +1,308 @@
+[
+  {
+    "name": "get_roles",
+    "description": "Lists available roles",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "agent": true
+  },
+  {
+    "name": "execute_role",
+    "description": "Executes the given role",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "Role to execute"
+        },
+        "task": {
+          "type": "string",
+          "description": "Task to execute"
+        }
+      },
+      "required": [
+        "role"
+      ]
+    },
+    "agent": true
+  },
+  {
+    "name": "calculator",
+    "description": "Use calculator",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string",
+          "description": "Expression"
+        }
+      },
+      "required": [
+        "expression"
+      ]
+    }
+  },
+  {
+    "name": "execute_command",
+    "description": "Execute the shell command.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string",
+          "description": "The command to execute."
+        }
+      },
+      "required": [
+        "command"
+      ]
+    }
+  },
+  {
+    "name": "execute_py_code",
+    "description": "Execute the python code.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Python code to execute, such as `print(\"hello world\")`"
+        }
+      },
+      "required": [
+        "code"
+      ]
+    }
+  },
+  {
+    "name": "execute_js_code",
+    "description": "Execute the javascript code in node.js.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Javascript code to execute, such as `console.log(\"hello world\")`"
+        }
+      },
+      "required": [
+        "code"
+      ]
+    }
+  },
+  {
+    "name": "fetch_url_via_curl",
+    "description": "Extract the content from a given URL.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The URL to scrape."
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  },
+  {
+    "name": "fetch_url_via_jina",
+    "description": "Extract the content from a given URL.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The URL to scrape."
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  },
+  {
+    "name": "fs_cat",
+    "description": "Read the contents of a file at the specified path.\nUse this when you need to examine the contents of an existing file.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The path of the file to read"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    }
+  },
+  {
+    "name": "fs_ls",
+    "description": "List all files and directories at the specified path.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The path of the directory to list"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    }
+  },
+  {
+    "name": "fs_mkdir",
+    "description": "Create a new directory at the specified path.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The path of the directory to create"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    }
+  },
+  {
+    "name": "fs_patch",
+    "description": "Apply a patch to a file at the specified path.\nThis can be used to edit the file, without having to rewrite the whole file.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The path of the file to apply to"
+        },
+        "contents": {
+          "type": "string",
+          "description": "The patch to apply to the file\n\nHere is an example of a patch block that can be applied to modify the file to request the user's name:\n--- a/hello.py\n+++ b/hello.py\n@@ ... @@\n def hello():\n-    print(\"Hello World\")\n+    name = input(\"What is your name? \")\n+    print(f\"Hello {name}\")"
+        }
+      },
+      "required": [
+        "path",
+        "contents"
+      ]
+    }
+  },
+  {
+    "name": "fs_rm",
+    "description": "Remove the file or directory at the specified path.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The path of the file or directory to remove"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    }
+  },
+  {
+    "name": "fs_write",
+    "description": "Write the full file contents to a file at the specified path.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The path of the file to write to"
+        },
+        "contents": {
+          "type": "string",
+          "description": "The full contents to write to the file"
+        }
+      },
+      "required": [
+        "path",
+        "contents"
+      ]
+    }
+  },
+  {
+    "name": "get_current_time",
+    "description": "Get the current time.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "name": "get_current_weather",
+    "description": "Get the current weather in a given location.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "The city and optionally the state or country, e.g., \"London\", \"San Francisco, CA\"."
+        }
+      },
+      "required": [
+        "location"
+      ]
+    }
+  },
+  {
+    "name": "use_numbat",
+    "description": "Perform computation",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string",
+          "description": "Expression"
+        }
+      },
+      "required": [
+        "expression"
+      ]
+    }
+  },
+  {
+    "name": "search_wikipedia",
+    "description": "Search Wikipedia for a query.\nUses it to get detailed information about a public figure, interpretation of a complex scientific concept or in-depth connectivity of a significant historical event,.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "The query to search for."
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "web_search_tavily",
+    "description": "Perform a web search using Tavily API to get up-to-date information or additional context.\nUse this when you need current information or feel a search could provide a better answer.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "The query to search for."
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  }
+]
