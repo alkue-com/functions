@@ -1,0 +1,17 @@
+calculator.sh
+execute_command.sh
+execute_py_code.py
+execute_js_code.js
+fetch_url_via_curl.sh
+fetch_url_via_jina.sh
+fs_cat.sh
+fs_ls.sh
+fs_mkdir.sh
+fs_patch.sh
+fs_rm.sh
+fs_write.sh
+get_current_time.sh
+get_current_weather.sh
+use_numbat.sh
+search_wikipedia.sh
+web_search_tavily.sh
