@@ -26,7 +26,7 @@ execute_role() {
     ;;
   esac
 
-  aichat --role "$argc_role" --session "$context" --save-session "$argc_task"
+  aichat --role "$argc_role" --session "$context" "$argc_task"
 }
 
 eval "$(argc --argc-eval "$0" "$@")"
