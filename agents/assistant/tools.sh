@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# shellcheck disable=SC2154  # arguments are handled by argc
 set -e
 
 export AICHAT_ROLES_DIR="$HOME/.config/configent/prompts/assistant"
@@ -26,7 +25,9 @@ execute_role() {
     ;;
   esac
 
-  aichat --role "$argc_role" --session "$context" "$argc_task"
+  # shellcheck disable=SC2154  # args are handled by arc
+  # shellcheck disable=SC2086  # will not double quote argc_task
+  aichat --role "$argc_role" --session "$context" $argc_task
 }
 
 eval "$(argc --argc-eval "$0" "$@")"
