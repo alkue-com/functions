@@ -273,5 +273,359 @@
         "query"
       ]
     }
+  },
+  {
+    "name": "resolve_library_id",
+    "description": "Resolves a package/product name to a Context7-compatible library ID and returns a list of matching libraries.\n\nYou MUST call this function before 'get-library-docs' to obtain a valid Context7-compatible library ID UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.\n\nSelection Process:\n1. Analyze the query to understand what library/package the user is looking for\n2. Return the most relevant match based on:\n- Name similarity to the query (exact matches prioritized)\n- Description relevance to the query's intent\n- Documentation coverage (prioritize libraries with higher Code Snippet counts)\n- Trust score (consider libraries with scores of 7-10 more authoritative)\n\nResponse Format:\n- Return the selected library ID in a clearly marked section\n- Provide a brief explanation for why this library was chosen\n- If multiple good matches exist, acknowledge this but proceed with the most relevant one\n- If no good matches exist, clearly state this and suggest query refinements\n\nFor ambiguous queries, request clarification before proceeding with a best-guess match.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "libraryName": {
+          "type": "string",
+          "description": "Library name to search for and retrieve a Context7-compatible library ID."
+        }
+      },
+      "required": [
+        "libraryName"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "context7"
+  },
+  {
+    "name": "get_library_docs",
+    "description": "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool, UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "context7CompatibleLibraryID": {
+          "type": "string",
+          "description": "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase', '/vercel/next.js/v14.3.0-canary.87') retrieved from 'resolve-library-id' or directly from user query in the format '/org/project' or '/org/project/version'."
+        },
+        "topic": {
+          "type": "string",
+          "description": "Topic to focus documentation on (e.g., 'hooks', 'routing')."
+        },
+        "tokens": {
+          "type": "number",
+          "description": "Maximum number of tokens of documentation to retrieve (default: 10000). Higher values provide more context but consume more tokens."
+        }
+      },
+      "required": [
+        "context7CompatibleLibraryID"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "context7"
+  },
+  {
+    "name": "search",
+    "description": "\n    Search DuckDuckGo and return formatted results.\n\n    Args:\n        query: The search query string\n        max_results: Maximum number of results to return (default: 10)\n        ctx: MCP context for logging\n    ",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "title": "Query",
+          "type": "string"
+        },
+        "max_results": {
+          "default": 10,
+          "title": "Max Results",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "title": "searchArguments"
+    },
+    "mcp": "duckduckgo-mcp"
+  },
+  {
+    "name": "fetch_content",
+    "description": "\n    Fetch and parse content from a webpage URL.\n\n    Args:\n        url: The webpage URL to fetch content from\n        ctx: MCP context for logging\n    ",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "title": "fetch_contentArguments"
+    },
+    "mcp": "duckduckgo-mcp"
+  },
+  {
+    "name": "midscene_playwright_example",
+    "description": "Provides Playwright code examples for Midscene. If users need to generate Midscene test cases, they can call this method to get sample Midscene Playwright test cases for generating end-user test cases. Each step must first be verified using the mcp method, and then the final test case is generated based on the playwright example according to the steps executed by mcp",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_navigate",
+    "description": "Navigates the browser to the specified URL. Always opens in the current tab.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "URL to navigate to"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_get_tabs",
+    "description": "Retrieves a list of all open browser tabs, including their ID, title, and URL.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_set_active_tab",
+    "description": "Switches the browser's focus to the tab specified by its ID. Use midscene_get_tabs first to find the correct tab ID.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "tabId": {
+          "type": "string",
+          "description": "The ID of the tab to set as active."
+        }
+      },
+      "required": [
+        "tabId"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_aihover",
+    "description": "Moves the mouse cursor to hover over an element identified by a natural language selector.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "locate": {
+          "type": "string",
+          "description": "Use natural language describe the element to hover over"
+        }
+      },
+      "required": [
+        "locate"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_aiwaitfor",
+    "description": "Waits until a specified condition, described in natural language, becomes true on the page. Polls the condition using AI.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "assertion": {
+          "type": "string",
+          "description": "Condition to monitor on the page, described in natural language."
+        },
+        "timeoutMs": {
+          "type": "number",
+          "default": 15000,
+          "description": "Maximum time to wait (ms).\nDefault: 15000"
+        },
+        "checkIntervalMs": {
+          "type": "number",
+          "default": 3000,
+          "description": "How often to check the condition (ms).\nDefault: 3000"
+        }
+      },
+      "required": [
+        "assertion"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_aiassert",
+    "description": "Asserts that a specified condition, described in natural language, is true on the page. Polls the condition using AI.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "assertion": {
+          "type": "string",
+          "description": "Condition to monitor on the page, described in natural language."
+        }
+      },
+      "required": [
+        "assertion"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_aikeyboardpress",
+    "description": "Presses a specific key on the keyboard.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The web key to press, e.g. 'Enter', 'Tab', 'Escape', etc."
+        },
+        "locate": {
+          "type": "string",
+          "description": "Optional: natural language description of the element to press the key on"
+        },
+        "deepThink": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true, uses a two-step AI call to precisely locate the element"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_screenshot",
+    "description": "Captures a screenshot of the currently active browser tab and saves it with the given name.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name for the screenshot"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_aitap",
+    "description": "Locates and clicks an element on the current page based on a natural language description (selector).",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "locate": {
+          "type": "string",
+          "description": "Use natural language describe the element to click"
+        }
+      },
+      "required": [
+        "locate"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_aiscroll",
+    "description": "Scrolls the page or a specified element. Can scroll by a fixed amount or until an edge is reached.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "direction": {
+          "type": "string",
+          "enum": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "description": "The direction to scroll."
+        },
+        "scrollType": {
+          "type": "string",
+          "enum": [
+            "once",
+            "untilBottom",
+            "untilTop",
+            "untilLeft",
+            "untilRight"
+          ],
+          "default": "once",
+          "description": "Type of scroll: 'once' for a fixed distance, or until reaching an edge."
+        },
+        "distance": {
+          "type": "number",
+          "description": "The distance to scroll in pixels (used with scrollType 'once')."
+        },
+        "locate": {
+          "type": "string",
+          "description": "Optional natural language description of the element to scroll. If not provided, scrolls based on current mouse position."
+        },
+        "deepThink": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true and 'locate' is provided, uses a two-step AI call to precisely locate the element."
+        }
+      },
+      "required": [
+        "direction"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
+  },
+  {
+    "name": "midscene_aiinput",
+    "description": "Inputs text into a specified form field or element identified by a natural language selector.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "The text to input"
+        },
+        "locate": {
+          "type": "string",
+          "description": "Describe the element to input text into, use natural language"
+        }
+      },
+      "required": [
+        "value",
+        "locate"
+      ],
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+    },
+    "mcp": "mcp-midscene"
   }
 ]
