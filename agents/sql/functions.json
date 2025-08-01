@@ -1,0 +1,63 @@
+[
+  {
+    "name": "read_query",
+    "description": "Execute a SELECT query",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "SELECT SQL query to execute"
+        }
+      },
+      "required": [
+        "query"
+      ]
+    },
+    "agent": true
+  },
+  {
+    "name": "write_query",
+    "description": "Execute an SQL query",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "SQL query to execute"
+        }
+      },
+      "required": [
+        "query"
+      ]
+    },
+    "agent": true
+  },
+  {
+    "name": "list_tables",
+    "description": "List all tables",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "agent": true
+  },
+  {
+    "name": "describe_table",
+    "description": "Get the schema information for a specific table",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "table_name": {
+          "type": "string",
+          "description": "Name of the table to describe"
+        }
+      },
+      "required": [
+        "table_name"
+      ]
+    },
+    "agent": true
+  }
+]
