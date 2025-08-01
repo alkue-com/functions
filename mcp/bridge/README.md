@@ -24,7 +24,7 @@ Let external MCP tools be used by LLM-Functions.
         "--repository",
         "path/to/git/repo"
       ],
-      "prefix": false
+      "prefix": true
     },
     "github": {
       "command": "npx",
@@ -40,9 +40,9 @@ Let external MCP tools be used by LLM-Functions.
 }
 ```
 
-> MCP-Bridge will launch the server and register all the tools listed by the server. 
+> MCP-Bridge will launch the server and register all the tools listed by the server.
 
-> To avoid name clashes, The server automatically prefix tool names with `<server>_`. You can disable this behavior by add `prefix: false` to server configuration.
+> To avoid name clashes, you can prefix tool names with `<server>_` by adding `prefix: true` to the server configuration.
 
 ### 2. Run the bridge server, build mcp tool binaries, update functions.json, all with:
 
