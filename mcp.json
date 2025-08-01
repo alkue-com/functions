@@ -1,22 +1,19 @@
 {
-    "mcpServers": {
-      "context7": {
-        "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp@latest"],
-        "prefix": false
-      },
-      "duckduckgo-mcp": {
-        "command": "uvx",
-        "args": ["duckduckgo-mcp-server"],
-        "prefix": false
-      },
-      "mcp-midscene": {
-        "command": "npx",
-        "args": ["-y", "@midscene/mcp"],
-        "env": {
-          "MIDSCENE_MODEL_NAME": "gpt-4.1-mini"
-        },
-        "prefix": false
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "duckduckgo-mcp": {
+      "command": "uvx",
+      "args": ["duckduckgo-mcp-server"]
+    },
+    "mcp-midscene": {
+      "command": "npx",
+      "args": ["-y", "@midscene/mcp"],
+      "env": {
+        "MIDSCENE_MODEL_NAME": "gpt-4.1-mini"
       }
     }
   }
+}

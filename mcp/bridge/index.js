@@ -29,7 +29,7 @@ try {
 async function startMcpServer(id, serverConfig) {
   console.log(`Starting ${id} server...`);
   const capabilities = { tools: {} };
-  const { prefix = true, ...rest } = serverConfig;
+  const { prefix = false, ...rest } = serverConfig;
   const transport = new StdioClientTransport({
     ...rest,
   });
@@ -125,8 +125,8 @@ async function runBridge() {
 
   app.get("/", (_req, res) => {
     res.send(`# MCP Bridge API
-  
-- POST /tools/:name 
+
+- POST /tools/:name
   \`\`\`
   curl -X POST http://localhost:8808/tools/filesystem_write_file  \\
     -H 'content-type: application/json' \\
