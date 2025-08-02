@@ -1,0 +1,28 @@
+[
+  {
+    "name": "get_ipinfo",
+    "description": "Get the ip info",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "agent": true
+  },
+  {
+    "name": "execute_command",
+    "description": "Execute the shell command.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string",
+          "description": "The command to execute."
+        }
+      },
+      "required": [
+        "command"
+      ]
+    }
+  }
+]

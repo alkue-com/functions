@@ -1,0 +1,24 @@
+[
+  {
+    "name": "print_json",
+    "description": "Print the json data.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "json_file_path": {
+          "type": "string",
+          "description": "The json file path"
+        },
+        "jq_expr": {
+          "type": "string",
+          "description": "The jq expression"
+        }
+      },
+      "required": [
+        "json_file_path",
+        "jq_expr"
+      ]
+    },
+    "agent": true
+  }
+]

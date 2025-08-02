@@ -87,8 +87,8 @@ build@tool() {
         mkdir -p "$TMP_DIR"
         argc_names_file="$TMP_DIR/tools.txt"
         printf "%s\n" "${argc_tools[@]}" > "$argc_names_file"
-    elif [[ "$argc_declarations_file" == "functions.json" ]]; then
-        argc clean@tool
+    #elif [[ "$argc_declarations_file" == "functions.json" ]]; then
+        #argc clean@tool
     fi
     argc build-declarations@tool --names-file "${argc_names_file}" --declarations-file "${argc_declarations_file}"
     argc build-bin@tool --names-file "${argc_names_file}"
@@ -206,8 +206,8 @@ build@agent() {
         mkdir -p "$TMP_DIR"
         argc_names_file="$TMP_DIR/agents.txt"
         printf "%s\n" "${argc_agents[@]}" > "$argc_names_file"
-    else
-        argc clean@agent
+    #else
+        #argc clean@agent
     fi
     argc build-declarations@agent --names-file "${argc_names_file}"
     argc build-bin@agent --names-file "${argc_names_file}"
