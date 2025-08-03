@@ -341,7 +341,7 @@
       ],
       "title": "searchArguments"
     },
-    "mcp": "duckduckgo-mcp"
+    "mcp": "duckduckgo"
   },
   {
     "name": "fetch_content",
@@ -359,7 +359,7 @@
       ],
       "title": "fetch_contentArguments"
     },
-    "mcp": "duckduckgo-mcp"
+    "mcp": "duckduckgo"
   },
   {
     "name": "midscene_playwright_example",
@@ -370,7 +370,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_navigate",
@@ -389,7 +389,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_get_tabs",
@@ -400,7 +400,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_set_active_tab",
@@ -419,7 +419,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_aihover",
@@ -438,7 +438,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_aiwaitfor",
@@ -467,7 +467,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_aiassert",
@@ -486,7 +486,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_aikeyboardpress",
@@ -514,7 +514,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_screenshot",
@@ -533,7 +533,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_aitap",
@@ -552,7 +552,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_aiscroll",
@@ -602,7 +602,7 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   },
   {
     "name": "midscene_aiinput",
@@ -626,6 +626,6 @@
       "additionalProperties": false,
       "$schema": "http://json-schema.org/draft-07/schema#"
     },
-    "mcp": "mcp-midscene"
+    "mcp": "midscene"
   }
 ]
