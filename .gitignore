@@ -5,3 +5,5 @@ midscene_run/
 
 __pycache__
 node_modules
+
+mcp.json
