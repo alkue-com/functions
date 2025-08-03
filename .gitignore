@@ -1,12 +1,7 @@
-/bin
-/cache
-/.venv
+.venv/
+bin/
+cache/
+midscene_run/
 
 __pycache__
 node_modules
-
-# Midscene.js dump files
-midscene_run/dump
-midscene_run/report
-midscene_run/tmp
-midscene_run/log
