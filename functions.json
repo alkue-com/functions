@@ -322,7 +322,7 @@
   },
   {
     "name": "search",
-    "description": "\n    Search DuckDuckGo and return formatted results.\n\n    Args:\n        query: The search query string\n        max_results: Maximum number of results to return (default: 10)\n        ctx: MCP context for logging",
+    "description": "\nSearch DuckDuckGo and return formatted results.\n\nArgs:\n    query: The search query string\n    max_results: Maximum number of results to return (default: 10)\n    ctx: MCP context for logging",
     "parameters": {
       "type": "object",
       "properties": {
@@ -345,7 +345,7 @@
   },
   {
     "name": "fetch_content",
-    "description": "\n    Fetch and parse content from a webpage URL.\n\n    Args:\n        url: The webpage URL to fetch content from\n        ctx: MCP context for logging",
+    "description": "\nFetch and parse content from a webpage URL.\n\nArgs:\n    url: The webpage URL to fetch content from\n    ctx: MCP context for logging",
     "parameters": {
       "type": "object",
       "properties": {
