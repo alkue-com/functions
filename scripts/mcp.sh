@@ -109,7 +109,8 @@ merge-functions() {
     local tmpdir="$(mktemp -d)"
     "$0" recovery-functions > "$tmpdir/1.json"
     generate-declarations > "$tmpdir/2.json"
-    result="$(jq -s '.[0] + .[1]' "$tmpdir/1.json" "$tmpdir/2.json")"
+    # Trim trailing whitespace from description fields
+    result="$(jq -s '.[0] + .[1] | map(if .description then .description |= (gsub("\\s+$"; "")) else . end)' "$tmpdir/1.json" "$tmpdir/2.json")"
     if [[ -n "$argc_save" ]]; then
         printf "%s" "$result" > "$FUNCTIONS_JSON_PATH"
     else
