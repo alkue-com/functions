@@ -109,7 +109,6 @@ merge-functions() {
     local tmpdir="$(mktemp -d)"
     "$0" recovery-functions > "$tmpdir/1.json"
     generate-declarations > "$tmpdir/2.json"
-    # Normalize whitespace in description fields (remove MCP indentation completely)
     result="$(jq -s '.[0] + .[1] | map(if .description then .description |= (gsub("^\\n    "; "\n") | gsub("\\n        "; "\n") | gsub("\\n    "; "\n") | gsub("\\n\\s*$"; "")) else . end)' "$tmpdir/1.json" "$tmpdir/2.json")"
     if [[ -n "$argc_save" ]]; then
         printf "%s" "$result" > "$FUNCTIONS_JSON_PATH"
