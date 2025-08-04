@@ -49,7 +49,7 @@ stop() {
 # @cmd Check the mcp bridge server is running
 check() {
     if [[ -f "$MCP_JSON_PATH" ]]; then
-        echo "Check mcp/bridge" 
+        echo "Check mcp/bridge"
         pid="$(get-server-pid)"
         if [[ -z "$pid" ]]; then
             stop
@@ -109,8 +109,8 @@ merge-functions() {
     local tmpdir="$(mktemp -d)"
     "$0" recovery-functions > "$tmpdir/1.json"
     generate-declarations > "$tmpdir/2.json"
-    # Trim trailing whitespace from description fields
-    result="$(jq -s '.[0] + .[1] | map(if .description then .description |= (gsub("\\s+$"; "")) else . end)' "$tmpdir/1.json" "$tmpdir/2.json")"
+    # Normalize whitespace in description fields (trim trailing and normalize leading indentation)
+    result="$(jq -s '.[0] + .[1] | map(if .description then .description |= (gsub("\\s+$"; "") | gsub("^\\n    "; "\n") | gsub("\\n    "; "\n")) else . end)' "$tmpdir/1.json" "$tmpdir/2.json")"
     if [[ -n "$argc_save" ]]; then
         printf "%s" "$result" > "$FUNCTIONS_JSON_PATH"
     else
